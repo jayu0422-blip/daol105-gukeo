@@ -37,7 +37,7 @@
   .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#e64b3c;margin-right:7px;vertical-align:middle;animation:pulse 1.8s infinite}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(230,75,60,.55)}70%{box-shadow:0 0 0 9px rgba(230,75,60,0)}100%{box-shadow:0 0 0 0 rgba(230,75,60,0)}}
 
-  .hero{position:relative;overflow:hidden;color:#eaf0fb;background:radial-gradient(900px 460px at 78% -8%,rgba(231,197,109,.20),transparent 60%),radial-gradient(700px 500px at 8% 110%,rgba(33,60,108,.55),transparent 55%),linear-gradient(160deg,#0c1a36 0%,#15294f 58%,#1b3160 100%);padding:56px 0 0}
+  .hero{position:relative;overflow:hidden;color:#eaf0fb;background:radial-gradient(900px 460px at 78% -8%,rgba(231,197,109,.20),transparent 60%),radial-gradient(700px 500px at 8% 110%,rgba(33,60,108,.55),transparent 55%),linear-gradient(160deg,#0c1a36 0%,#15294f 58%,#1b3160 100%);padding:56px 0 46px}
   .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5;z-index:3}
   .hero .wrap{position:relative;z-index:2}
   .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:end}
@@ -63,6 +63,26 @@
   .hero-cred b{color:var(--gold-bright);font-size:14.5px;display:block}
   .hero-cred span{color:#c3cee2;font-size:11.5px}
   @media (max-width:820px){.hero-grid{grid-template-columns:1fr}.hero-pic{margin-top:8px;max-height:260px;overflow:hidden}.hero-pic img{width:200px}}
+  .hero-duo{display:flex;align-items:flex-end;justify-content:center;gap:clamp(6px,3vw,26px);margin:34px auto 0;max-width:600px}
+  .hd-teacher{flex:1;max-width:250px;text-align:center}
+  .hd-photo{position:relative;height:clamp(168px,32vw,286px);display:flex;align-items:flex-end;justify-content:center}
+  .hd-photo::before{content:"";position:absolute;left:6%;right:6%;bottom:0;height:52%;background:radial-gradient(closest-side,rgba(231,197,109,.22),transparent 72%);z-index:0}
+  .hd-photo img{position:relative;z-index:1;max-height:100%;width:auto;filter:drop-shadow(0 16px 26px rgba(0,0,0,.5))}
+  .hd-role{margin-top:12px;font-size:11.5px;font-weight:800;display:inline-block;padding:3px 11px;border-radius:999px}
+  .hd-nae .hd-role{background:rgba(231,197,109,.16);color:var(--gold-bright);border:1px solid rgba(231,197,109,.4)}
+  .hd-su .hd-role{background:rgba(45,212,191,.12);color:#7fe6d3;border:1px solid rgba(45,212,191,.35)}
+  .hd-name{font-size:clamp(19px,4vw,25px);font-weight:800;color:#fff;margin-top:7px}
+  .hd-cred{font-size:11px;color:#93a2c4;margin-top:3px;line-height:1.4}
+  .hd-x{flex:0 0 auto;color:var(--gold);font-family:var(--serif);font-weight:800;font-size:clamp(18px,4vw,28px);align-self:center;padding-bottom:66px}
+  /* 고3 스트립 */
+  .grade3-strip{margin-top:26px;background:linear-gradient(160deg,#0c1a36,#17305c);border:1px solid rgba(231,197,109,.3);border-radius:20px;padding:24px 26px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;box-shadow:var(--shadow)}
+  .g3-badge{flex:0 0 auto;font-size:13px;font-weight:800;color:var(--ink);background:linear-gradient(160deg,var(--gold-bright),var(--gold));padding:8px 16px;border-radius:999px}
+  .g3-body{flex:1;min-width:240px}
+  .g3-body h4{color:#fff;font-size:clamp(16px,2.6vw,19px);font-weight:800;line-height:1.4;margin-bottom:6px}
+  .g3-body h4 .g3-hl{color:var(--gold-bright)}
+  .g3-body p{color:#c3cee2;font-size:14px;line-height:1.7}.g3-body p b{color:#fff}
+  .grade3-strip .btn{flex:0 0 auto}
+  @media (max-width:560px){.grade3-strip{flex-direction:column;align-items:stretch;text-align:center}.grade3-strip .btn{width:100%}}
 
   /* spec cards */
   .specband{background:var(--paper);border-bottom:1px solid var(--line);padding:30px 0}
@@ -331,30 +351,39 @@
 </head>
 <body>
 
-<div class="ticker"><span class="dot"></span>작년 <b>미사고·미사강변고(미강고) 2학년</b> 일부 학기, 국어 내신이 <b>범위 없는 모의고사 형식</b>으로 출제됐습니다</div>
+<div class="ticker"><span class="dot"></span>작년 <b>미사고1·2 · 미사강변고1·2</b>, 국어 내신이 <b>시험범위 없이 모의고사 형식</b>으로 출제된 사례 — 이제 '외운 아이'로는 부족합니다</div>
 
 <!-- HERO -->
 <header class="hero">
   <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <div class="badge-row">
-          <span class="badge solid">고려대학교 국어교육</span>
-          <span class="badge">現 다올105 수능국어 대표강사</span>
-          <span class="badge">現 입시왕 수능 대표강사</span>
-        </div>
-        <h1>내신 시험지에 '범위'가 사라지는 순간,<br /><span class="q">아이는 이미 수능을 보고 있습니다.</span></h1>
-        <p class="sub">작년 <b>미사고·미사강변고 2학년</b> 일부 학기, 국어 내신은 <b>시험범위 없는 모의고사 형식</b>으로 출제됐습니다. 공지는 시험 <b>2주 전</b>에야 붙었고, 시험지를 편 순간 외워온 프린트는 한 장도 나오지 않았습니다. 그 시험은 <b>'범위를 외운 아이'가 아니라 '처음 보는 지문을 스스로 뚫는 아이'의 편</b>이었습니다.</p>
-        <p class="micro">📖 국어는 <span>아는 지문</span>이 아니라, <span>처음 보는 지문</span>에서 승부가 납니다.</p>
-        <div class="cta-row">
-          <a class="btn btn-gold" href="tel:031-699-8111">☎ 우리 아이 국어 진단 상담 (무료)</a>
-          <a class="btn btn-ghost" href="https://map.naver.com/p/entry/place/1962162458?placePath=%252Fhome%253Fentry%253Dplt&amp;searchType=place&amp;lng=127.1855549&amp;lat=37.5682984&amp;c=15.00,0,0,0,dh" target="_blank" rel="noopener">🗺 오시는 길</a>
-        </div>
+    <div class="badge-row" style="justify-content:center">
+      <span class="badge solid">다올105 국어</span>
+      <span class="badge">김영하 원장 · 내신 정규반</span>
+      <span class="badge">이정관 · 비문학·수능 특강</span>
+    </div>
+    <h1 style="text-align:center">내신 시험지에 '범위'가 사라지는 순간,<br /><span class="q">아이는 이미 수능을 보고 있습니다.</span></h1>
+    <p class="sub" style="margin-left:auto;margin-right:auto;text-align:center">작년, <b>미사고1·2 · 미사강변고1·2</b> — 국어 내신이 <b>시험범위 없이 모의고사 형식</b>으로 출제된 사례가 있습니다. 외워온 프린트는 한 장도 나오지 않았고, 시험지엔 처음 보는 지문뿐이었습니다.</p>
+    <p class="micro" style="text-align:center">📖 이제 국어 내신은 '외운 아이'가 아니라 <span>'낯선 지문을 풀어내는 아이'</span>의 편입니다.</p>
+
+    <div class="hero-duo">
+      <div class="hd-teacher hd-nae">
+        <div class="hd-photo"><img src="img/김영하_hero.png" alt="김영하 원장" loading="lazy"></div>
+        <div class="hd-role">내신 정규반 · 국어과 원장</div>
+        <div class="hd-name">김영하</div>
+        <div class="hd-cred">이화여대 · 다올105 국어과 원장</div>
       </div>
-      <div class="hero-pic">
-        <img src="img/이정관_cut.png" alt="이정관 선생님" loading="lazy">
-        <div class="hero-cred"><b>이정관 선생님</b><span>고려대 국어교육 · 다올105 수능국어 대표강사</span></div>
+      <div class="hd-x">×</div>
+      <div class="hd-teacher hd-su">
+        <div class="hd-photo"><img src="img/이정관_hero.png" alt="이정관 선생님" loading="lazy"></div>
+        <div class="hd-role">비문학·수능 특강</div>
+        <div class="hd-name">이정관</div>
+        <div class="hd-cred">고려대 국어교육 · 수능국어 대표강사</div>
       </div>
+    </div>
+
+    <div class="cta-row" style="justify-content:center;margin-top:28px">
+      <a class="btn btn-gold" href="tel:031-699-8111">☎ 우리 아이 국어 진단 상담 (무료)</a>
+      <a class="btn btn-ghost" href="https://map.naver.com/p/entry/place/1962162458?placePath=%252Fhome%253Fentry%253Dplt&amp;searchType=place&amp;lng=127.1855549&amp;lat=37.5682984&amp;c=15.00,0,0,0,dh" target="_blank" rel="noopener">🗺 오시는 길</a>
     </div>
   </div>
 </header>
@@ -377,7 +406,7 @@
     <p class="eyebrow">내신이 바뀌는 순간</p>
     <h2 class="sec">"범위만 열심히 외우면 된다"는 믿음이,<br />작년 그 학기에 무너졌습니다.</h2>
     <p class="lead">학기 중엔 다 같은 프린트, 다 같은 기출, 다 같은 범위. 그래서 국어 내신은 <b style="color:var(--ink)">"범위 안에서 얼마나 열심히 외웠는가"</b>의 싸움이라고 믿기 쉽습니다.<br /><br />
-    그런데 작년, <b style="color:var(--ink)">미사고·미사강변고 2학년 일부 학기</b>의 국어 시험은 정해진 범위 없이 <b style="color:var(--ink)">평가원 모의고사 형식</b>으로 출제됐습니다. 그 순간 학교 내신은 사실상 <span class="hl">작은 수능</span>이 되었습니다.<br /><br />
+    그런데 작년, <b style="color:var(--ink)">미사고1·2·미사강변고1·2</b>에서 국어 내신이 정해진 범위 없이 <b style="color:var(--ink)">모의고사 형식</b>으로 출제된 사례가 있었습니다. 그 순간 학교 내신은 사실상 <span class="hl">작은 수능</span>이 되었습니다.<br /><br />
     문제는 "범위가 없어졌다"는 사실 자체가 아닙니다. <span class="hl">"그 학기, 누가 이미 준비되어 있었는가"</span>입니다.</p>
   </div>
 </section>
@@ -432,8 +461,8 @@
   <div class="wrap reveal">
     <div class="narrow" style="text-align:center">
       <p class="eyebrow" style="justify-content:center">데이터가 말하는 것</p>
-      <h2 class="sec">국어는 고3에 '올리는' 과목이 아니라<br />고1·2에 '다지는' 과목입니다</h2>
-      <p class="lead">수학·영어는 고3에도 개념을 새로 뚫어 단기 반등이 나오기도 합니다. 하지만 국어는 다릅니다. <b style="color:var(--ink)">독해력은 지식이 아니라 '누적된 처리 습관'</b>이라, 고3에 급히 끌어올리려 하면 가장 늦게 반응하는 과목입니다.</p>
+      <h2 class="sec">국어 독해력은 '벼락치기'가 안 됩니다<br />무범위 시험은 <span class="hl">미리 쌓은 아이</span>만 버팁니다</h2>
+      <p class="lead">수학·영어는 시험 직전 벼락치기로 단기 반등이 나오기도 합니다. 하지만 국어 독해력은 <b style="color:var(--ink)">지식이 아니라 '누적된 처리 습관'</b>이라 급히 끌어올릴 수 없습니다. 그래서 <b style="color:var(--ink)">범위가 사라진 시험·낯선 선지</b> 앞에서, 미리 쌓아 둔 아이와 그렇지 않은 아이가 곧바로 갈립니다.</p>
     </div>
 
     <div class="chartcard narrow">
@@ -484,7 +513,7 @@
     <div class="whygrid">
       <div class="why"><div class="why-ic">🧠</div><h4>국어는 '지식'이 아니라 '근육'입니다</h4><p>암기한 개념은 하루면 채우지만, 낯선 문장을 빠르게 처리하는 독해력은 <b>수백 지문을 직접 처리하며 쌓이는 습관</b>입니다. 벼락치기가 통하지 않는 이유입니다.</p></div>
       <div class="why"><div class="why-ic">⏳</div><h4>고3에는 국어에 쓸 시간이 없습니다</h4><p>고3은 전 과목이 벅찹니다. 이때 국어 <b>기초 독해부터 새로 잡을 여유는 없습니다.</b> 고1·2에 만들어둔 기본기 위에서 실전만 얹는 학생과 격차가 벌어집니다.</p></div>
-      <div class="why"><div class="why-ic">📉</div><h4>그래서 '기초 공사' 유무가 고3을 가릅니다</h4><p>같은 4등급으로 시작해도, 고1·2에 독해를 다진 학생은 고3에 올라가고 암기형은 정체합니다. <b>내신 범위가 사라지는 순간</b> 그 격차는 더 벌어집니다.</p></div>
+      <div class="why"><div class="why-ic">📉</div><h4>격차는 이미 고2부터 벌어집니다</h4><p>같은 4등급으로 시작해도, 독해를 다진 학생은 올라가고 암기형은 정체합니다. <b>내신 범위가 사라지거나 낯선 선지가 나오는 순간</b>, 그 격차는 곧바로 드러납니다.</p></div>
     </div>
   </div>
 </section>
@@ -633,7 +662,7 @@
     <div class="narrow" style="text-align:center">
       <p class="eyebrow" style="justify-content:center">다올105 국어 · 2학기 설계</p>
       <h2 class="sec">내신은 <span style="color:var(--gold)">김영하 원장</span>,<br />비문학·수능은 <span style="color:#0f766e">이정관</span> — 겹치지 않게 둘 다</h2>
-      <p class="lead">국어는 '이번 시험지(내신)'와 '다음 시험지(모의·수능)'가 <b style="color:var(--ink)">서로 다른 능력</b>입니다. 그래서 다올105 국어는 두 영역을 전담으로 나눠, 중복 없이 <b style="color:var(--ink)">두 축을 동시에</b> 끌어올립니다.</p>
+      <p class="lead">이 지역은 <b style="color:var(--ink)">내신 점수</b>가 무엇보다 중요합니다. 학교별 내신 선행은 <b style="color:var(--ink)">김영하 원장</b>이 책임집니다. 그리고 이정관 특강의 비문학 학습은 <b style="color:var(--ink)">선지 문제해결력·〈보기〉 분석력</b>을 길러 — <b style="color:var(--ink)">범위가 사라진 시험과 내신 고난도 문항, 수능최저</b>까지 대비합니다. 두 수업 모두, 결국 <b style="color:var(--ink)">'내신 점수'</b>로 돌아옵니다.</p>
     </div>
 
     <div class="pillars narrow">
@@ -647,7 +676,7 @@
         <span class="pl-tag">비문학·수능 특강</span>
         <h3>이정관</h3>
         <div class="pl-who">고려대 국어교육 · 수능국어 대표강사</div>
-        <p><b>벼락치기가 안 되는 영역을 전담.</b> 비문학·모의고사·낯선 지문·수능 독해를 <b>독해 행동 양식</b>으로 만드는 특강입니다.</p>
+        <p><b>비문학·선지·〈보기〉 분석력을 전담.</b> 무범위 시험과 내신 고난도 문항, 수능최저까지 대비하는 <b>문제해결력 특강</b>입니다.</p>
       </div>
     </div>
 
@@ -659,8 +688,8 @@
         <div class="ms-body">
           <div class="ms-combo">김영하 정규반 ＋ 이정관 특강</div>
           <div class="ms-line"><b>김영하 정규반</b> — 고전·문법·문학 내신 정조준</div>
-          <div class="ms-line"><b>이정관 특강</b> — 비문학·수능 독해</div>
-          <div class="ms-why"><b>왜 둘 다?</b> 이번 내신엔 <b>비문학이 없습니다.</b> 그래서 다들 2학기에 비문학을 놓치는데 — 그게 고3 수능을 가릅니다. 내신은 정규반이, 놓치기 쉬운 비문학은 특강이 지금 잡습니다. <b>중복 0.</b></div>
+          <div class="ms-line"><b>이정관 특강</b> — 비문학·선지·〈보기〉 분석력</div>
+          <div class="ms-why"><b>왜 둘 다?</b> 고전·문법 내신은 정규반이 잡습니다. 이정관 특강의 <b>비문학·선지 분석 훈련</b>은 — 내신 고난도 문항과 <b>범위가 사라질 가능성</b>에 대비하고, 내신에 필요한 <b>수능최저</b>까지 미리 준비합니다. 먼 훗날이 아니라, <b>당장의 내신</b>에 쓰입니다.</div>
         </div>
       </div>
       <div class="mschool">
@@ -669,7 +698,7 @@
           <div class="ms-combo">김영하 정규반 ＋ 이정관 특강</div>
           <div class="ms-line"><b>김영하 정규반</b> — 내신 전반·문학·서술형</div>
           <div class="ms-line"><b>이정관 특강</b> — 비문학 심화 ＋ 모의고사</div>
-          <div class="ms-why"><b>이번 내신이 곧 비문학입니다.</b> 그런데 비문학은 벼락치기가 가장 안 되는 영역 — <b>특강이 내신에 직결</b>됩니다. 내신 전반은 정규반이, 이번 시험의 핵심인 비문학과 모의고사는 특강이 화력을 집중합니다.</div>
+          <div class="ms-why"><b>이번 내신이 곧 비문학입니다.</b> 비문학은 벼락치기가 가장 안 되는 영역 — <b>특강이 이번 내신 점수에 직결</b>됩니다. 내신 전반·문학은 정규반이, 핵심인 비문학·선지 분석·모의고사는 특강이 화력을 집중해 <b>수능최저</b>까지 함께 잡습니다.</div>
         </div>
       </div>
       <div class="mschool solo">
@@ -694,6 +723,15 @@
       </div>
       <p>그래서 미사고2는 <b>언어와 매체(내신)의 선지 대응력과 비문학·수능 독해력을 하나의 흐름으로</b> 잡을 수 있습니다. 지금 고2에 이 힘을 만들어 두면, 고3 수능·수능최저 대비의 출발선이 달라집니다.</p>
       <p class="syn-note">※ 언어와 매체 문항 구조에 대한 일반적 해석에 근거한 설명입니다. 실제 반 편성·수업 범위는 전화 상담 시 안내해 드립니다.</p>
+    </div>
+
+    <div class="grade3-strip narrow">
+      <div class="g3-badge">고3 · N수생</div>
+      <div class="g3-body">
+        <h4>고3은 내신보다 <b>수능·수능최저</b>가 급합니다 — <span class="g3-hl">이정관 수능 온리</span></h4>
+        <p>남은 시간이 정해진 고3·N수생은 학교별 내신 선행보다 <b>수능 실전</b>이 우선입니다. <b>이정관 수능 국어 정규반 ＋ 비문학 초고난도 특강</b>으로 문학·비문학·선지 대응을 한 흐름에 완성합니다.</p>
+      </div>
+      <a class="btn btn-gold" href="tel:031-699-8111">☎ 고3 수능 상담</a>
     </div>
   </div>
 </section>
@@ -757,7 +795,7 @@
   <div class="wrap narrow urgency reveal">
     <p class="eyebrow" style="justify-content:center">잊지 말아야 할 사실 하나</p>
     <h2 class="sec" style="margin-bottom:6px">범위는, 언제든 사라질 수 있습니다</h2>
-    <p style="max-width:600px;margin:0 auto"><b>미사고·미사강변고 2학년 일부 학기</b>에서 실제로 범위 없이 모의고사 형식으로 출제된 적이 있다고, 현장에서 학생들을 지도한 강사가 전합니다. 한 학년에서 시작된 방식이 <b>다음 학년·이웃 학교로 번지지 않는다는 보장은 어디에도 없습니다.</b> 지금 고1이라면 내년 그 학년이 되고, 고3·N수생이라면 범위가 사라진 수능이 이미 코앞입니다.</p>
+    <p style="max-width:600px;margin:0 auto"><b>미사고1·2·미사강변고1·2</b>에서 실제로 범위 없이 모의고사 형식으로 출제된 사례가 있다고, 현장에서 학생들을 지도한 강사가 전합니다. 언제 어느 학년에 그 공지가 다시 붙을지는 <b>미리 알려주지 않습니다.</b> 범위를 외우는 힘이 아니라 <b>낯선 지문과 선지를 풀어내는 힘</b>을 지금 갖춰 둔 아이만, 그날 흔들리지 않습니다.</p>
     <p><b>그리고 어떤 경우든, 아이가 결국 마주할 마지막 시험은 범위가 없는 수능입니다.</b> "조금 더 지켜볼게요" 하며 한 학기를 미루는 사이, 아이의 독해 습관은 그대로 굳어갑니다.</p>
     <div class="cta-row" style="justify-content:center;margin-top:26px"><a class="btn btn-gold" href="tel:031-699-8111">☎ 지금 전화로 상담하기</a></div>
   </div>
@@ -770,7 +808,7 @@
     <h2 class="sec">FAQ</h2>
     <div class="faq">
       <details class="qa"><summary><span class="qmk">Q</span>우리 애는 정시가 아니라 내신(수시) 위주인데, 수능 국어까지 필요할까요?<span class="chev">⌄</span></summary><div class="a">오히려 수시 위주일수록 도움이 됩니다. 첫째, <b>내신 자체가 범위 없는 모의고사형으로 출제된 사례</b>가 이미 미사 학군에서 나왔습니다 — 이 경우 모의고사 훈련이 곧 내신 대비입니다. 둘째, 수시에서도 <b>수능 최저학력기준</b> 때문에 국어 한 과목이 당락을 가르는 경우가 많습니다. 셋째, 내신 국어의 <b>&lt;보기&gt;·서술형·낯선 지문 문항</b> 역시 결국 '처음 보는 글을 처리하는 힘'에서 갈립니다.</div></details>
-      <details class="qa"><summary><span class="qmk">Q</span>우리 학교는 내신 범위가 명확한데, 그래도 들어야 하나요?<span class="chev">⌄</span></summary><div class="a">범위는 <b>학기마다, 학교 방침에 따라 언제든 바뀔 수 있습니다.</b> 실제로 작년 미사고·미사강변고 2학년 일부 학기는 범위 없이 모의고사 형식으로 출제됐습니다. 게다가 범위가 있는 내신을 아무리 잘 받아도, 아이가 결국 치를 마지막 시험은 <b>범위가 없는 수능</b>입니다.</div></details>
+      <details class="qa"><summary><span class="qmk">Q</span>우리 학교는 내신 범위가 명확한데, 그래도 들어야 하나요?<span class="chev">⌄</span></summary><div class="a">범위는 <b>학기마다, 학교 방침에 따라 언제든 바뀔 수 있습니다.</b> 실제로 작년 미사고1·2·미사강변고1·2에서 범위 없이 모의고사 형식으로 출제된 사례가 있습니다. 이때는 <b>비문학·선지 분석력</b>이 곧 내신 점수가 됩니다. 이정관 특강은 바로 그 힘을 길러, <b>범위가 사라져도 흔들리지 않는 내신</b>과 수능최저를 함께 대비합니다.</div></details>
       <details class="qa"><summary><span class="qmk">Q</span>고1인데 벌써 이렇게 어려운 지문을 풀어야 하나요?<span class="chev">⌄</span></summary><div class="a">네. <b>비문학 초고난도 독해 특강</b>은 실제로 중등 상위권부터 고1·고2·고3까지를 대상으로 설계된 강좌입니다. 독해 행동 양식은 여유가 있을 때 잡아야 고3에서 힘들지 않습니다.</div></details>
       <details class="qa"><summary><span class="qmk">Q</span>정규반과 특강, 하나만 골라도 되나요?<span class="chev">⌄</span></summary><div class="a">네. <b>고3·N수생</b>은 실전 완성이 급하므로 <b>수능 국어 정규반</b>을, <b>고1·고2(또는 중등 상위권)</b>는 기초 체력을 만드는 <b>비문학 초고난도 독해 특강</b>을 추천드립니다. 특강으로 기준을 먼저 잡고, 고3 때 정규반으로 이어가는 흐름도 좋습니다.</div></details>
       <details class="qa"><summary><span class="qmk">Q</span>다른 국어 학원이나 인강도 듣고 있는데 병행 가능한가요?<span class="chev">⌄</span></summary><div class="a">가능합니다. 다만 이 수업은 지문 설명이 아니라 <b>평가원 기출 기반의 판단 기준·처리 루틴을 반복 훈련</b>하는 데 초점을 두므로, 다른 수업과 겹치기보다는 보완되는 경우가 많습니다.</div></details>
